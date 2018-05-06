@@ -1,15 +1,16 @@
-﻿using AppVeyor.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using AppVeyor;
+using AppVeyor.Model;
 
-namespace AppVeyor
+namespace MonitorARM.AppVeyor
 {
     public static class APICall
     {
-        private static string token = "-";
+        private static string token = "bw7ccvuqxmqtwe8t066a";
 
         public static async Task<List<Project>> GetProjects()
         {

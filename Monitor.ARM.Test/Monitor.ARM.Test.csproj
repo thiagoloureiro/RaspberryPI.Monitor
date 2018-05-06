@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AppVeyor\AppVeyor.csproj" />
+    <ProjectReference Include="..\AppVeyor\MonitorARM.AppVeyor.csproj" />
     <ProjectReference Include="..\src\MonitorARM.csproj" />
   </ItemGroup>
 

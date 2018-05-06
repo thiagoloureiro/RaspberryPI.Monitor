@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="RabbitMQ.Client" Version="5.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MonitorARM.IBMWatson\MonitorARM.IBMWatson.csproj" />
+    <ProjectReference Include="..\MonitorARM.Model\MonitorARM.Model.csproj" />
+    <ProjectReference Include="..\MonitorARM.Utils\MonitorARM.Utils.csproj" />
+  </ItemGroup>
+
+</Project>

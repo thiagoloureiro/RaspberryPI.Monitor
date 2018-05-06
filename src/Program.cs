@@ -1,34 +1,30 @@
 ﻿using System;
-using System.Threading.Tasks;
+using System.Threading;
 
 namespace MonitorARM
 {
     internal class Program
     {
+        private static readonly ManualResetEvent QuitEvent = new ManualResetEvent(false);
+
         private static void Main()
         {
             Console.Clear();
-            Console.WriteLine("Hello Raspberry PI!");
-            var ret = AppVeyor.APICall.GetProjects().Result;
-            var ret2 = AppVeyor.APICall.GetProjectLastBuild("dapper-crud-extension").Result;
+            Console.WriteLine("Raspberry Bot Started - Checking your builds");
 
-            //CallWatson.SynthetizeText("Sent to cloud and got it back! and playing");
+            var obj = new RabbitMQ.RabbitMQ("AppVeyor");
 
-            //Console.ReadKey();
+            obj.Connect();
 
-            //string command = "aplay /home/pi/ftp/files/music.wav";
-            //var process = new Process()
-            //{
-            //    StartInfo = new ProcessStartInfo
-            //    {
-            //        FileName = "/bin/bash",
-            //        Arguments = "-c \"" + command + "\"",
-            //        RedirectStandardOutput = true,
-            //        UseShellExecute = false,
-            //        CreateNoWindow = true,
-            //    }
-            //};
-            //process.Start();
+            Console.CancelKeyPress += (sender, eArgs) =>
+            {
+                QuitEvent.Set();
+                eArgs.Cancel = true;
+            };
+
+            // kick off asynchronous stuff
+
+            QuitEvent.WaitOne();
         }
     }
 }

@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
+﻿using Newtonsoft.Json;
+using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
-using Newtonsoft.Json;
 
 namespace TestRasp
 {
@@ -14,8 +11,8 @@ namespace TestRasp
         public static async void SynthetizeText(string text)
         {
             string url = "https://stream.watsonplatform.net/text-to-speech/api/v1/synthesize";
-            string username = "-";
-            string password = "-";
+            string username = "deac8fe3-0590-4677-a667-150fa45b88d4";
+            string password = "PdgBBkvpTC6s";
 
             string authString = username + ":" + password;
             var byteArray = Encoding.ASCII.GetBytes(authString);
@@ -40,8 +37,8 @@ namespace TestRasp
         public static void GetVoices()
         {
             string url = "https://stream.watsonplatform.net/text-to-speech/api/v1/voices";
-            string username = "-";
-            string password = "-";
+            string username = "deac8fe3-0590-4677-a667-150fa45b88d4";
+            string password = "PdgBBkvpTC6s";
 
             string authString = username + ":" + password;
             var byteArray = Encoding.ASCII.GetBytes(authString);

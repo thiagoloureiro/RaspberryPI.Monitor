@@ -1,7 +1,7 @@
-﻿using Newtonsoft.Json;
-using System.Net.Http;
+﻿using System.Net.Http;
+using Newtonsoft.Json;
 
-namespace AppVeyor
+namespace MonitorARM.AppVeyor
 {
     public static class HttpResponseExtensions
     {
