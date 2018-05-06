@@ -8,8 +8,8 @@ namespace MonitorARM
 {
     public class SlackBotUtils
     {
-        private const string _channelId = "CAG8XBQUF";
-        private const string _token = "xoxb-356303278343-JGMFmHIjJiftusry7tfze54F";
+        private const string _channelId = "-";
+        private const string _token = "-";
 
         public SlackBot GetBot()
         {
