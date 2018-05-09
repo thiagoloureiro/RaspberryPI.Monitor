@@ -5,7 +5,7 @@ namespace MonitorARM
 {
     internal class Program
     {
-        private static readonly ManualResetEvent QuitEvent = new ManualResetEvent(false);
+        // private static readonly ManualResetEvent QuitEvent = new ManualResetEvent(false);
 
         private static void Main()
         {
@@ -16,15 +16,16 @@ namespace MonitorARM
 
             obj.Connect();
 
-            Console.CancelKeyPress += (sender, eArgs) =>
-            {
-                QuitEvent.Set();
-                eArgs.Cancel = true;
-            };
+            Console.ReadKey();
+            //Console.CancelKeyPress += (sender, eArgs) =>
+            //{
+            //    QuitEvent.Set();
+            //    eArgs.Cancel = true;
+            //};
 
-            // kick off asynchronous stuff
+            //// kick off asynchronous stuff
 
-            QuitEvent.WaitOne();
+            //QuitEvent.WaitOne();
         }
     }
 }
