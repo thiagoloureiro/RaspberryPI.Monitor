@@ -30,6 +30,7 @@ namespace MonitorARM.RabbitMQ
 
             connection = factory.CreateConnection();
             connection.ConnectionShutdown += Connection_ConnectionShutdown;
+            Console.WriteLine($"Declaring Queue: {QueueName}");
 
             channel = connection.CreateModel();
             channel.QueueDeclare(QueueName, true, false, false, null);
@@ -37,6 +38,11 @@ namespace MonitorARM.RabbitMQ
             consumer = new EventingBasicConsumer(channel);
             consumer.Received += Consumer_Received;
             channel.BasicConsume(QueueName, true, consumer);
+        }
+
+        public void Disconnect()
+        {
+            Cleanup();
         }
 
         private void Connection_ConnectionShutdown(object sender, ShutdownEventArgs e)
@@ -64,6 +70,8 @@ namespace MonitorARM.RabbitMQ
 
         private void Cleanup()
         {
+            Console.WriteLine("Cleaning Up RabbitMQ");
+
             try
             {
                 if (channel != null && channel.IsOpen)
@@ -87,6 +95,8 @@ namespace MonitorARM.RabbitMQ
 
         private void Consumer_Received(object sender, BasicDeliverEventArgs e)
         {
+            Console.WriteLine("Message Received!");
+
             var body = e.Body;
             var content = Encoding.UTF8.GetString(body);
             var objRootObject = JsonConvert.DeserializeObject<RootObject>(content);
