@@ -10,7 +10,7 @@ namespace MonitorARM
             Console.Clear();
             Console.WriteLine("Raspberry Bot Started - Checking your builds");
             Console.WriteLine("Connecting to RabbitMQ");
-            var objRabbit = new RabbitMQ.RabbitMQ("AppVeyor");
+            var objRabbit = new RabbitMQ.RabbitMq("AppVeyor");
 
             objRabbit.Connect();
 

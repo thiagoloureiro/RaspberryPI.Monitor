@@ -11,33 +11,33 @@ using TestRasp;
 
 namespace MonitorARM.RabbitMQ
 {
-    public class RabbitMQ
+    public class RabbitMq
     {
-        private ConnectionFactory factory;
-        private IConnection connection;
-        private IModel channel;
-        private EventingBasicConsumer consumer;
+        private ConnectionFactory _factory;
+        private IConnection _connection;
+        private IModel _channel;
+        private EventingBasicConsumer _consumer;
         public string QueueName { get; set; }
 
-        public RabbitMQ(string queuename)
+        public RabbitMq(string queuename)
         {
             QueueName = queuename;
         }
 
         public void Connect()
         {
-            factory = new ConnectionFactory() { HostName = "hound.rmq.cloudamqp.com", VirtualHost = "usldnewk", UserName = "usldnewk", Password = "-" };
+            _factory = new ConnectionFactory() { HostName = "hound.rmq.cloudamqp.com", VirtualHost = "usldnewk", UserName = "usldnewk", Password = "urWrV6UeRu5vGgk8k7YJaqVwFCJyPSHc" };
 
-            connection = factory.CreateConnection();
-            connection.ConnectionShutdown += Connection_ConnectionShutdown;
+            _connection = _factory.CreateConnection();
+            _connection.ConnectionShutdown += Connection_ConnectionShutdown;
             Console.WriteLine($"Declaring Queue: {QueueName}");
 
-            channel = connection.CreateModel();
-            channel.QueueDeclare(QueueName, true, false, false, null);
+            _channel = _connection.CreateModel();
+            _channel.QueueDeclare(QueueName, true, false, false, null);
 
-            consumer = new EventingBasicConsumer(channel);
-            consumer.Received += Consumer_Received;
-            channel.BasicConsume(QueueName, true, consumer);
+            _consumer = new EventingBasicConsumer(_channel);
+            _consumer.Received += Consumer_Received;
+            _channel.BasicConsume(QueueName, true, _consumer);
         }
 
         public void Disconnect()
@@ -74,16 +74,16 @@ namespace MonitorARM.RabbitMQ
 
             try
             {
-                if (channel != null && channel.IsOpen)
+                if (_channel != null && _channel.IsOpen)
                 {
-                    channel.Close();
-                    channel = null;
+                    _channel.Close();
+                    _channel = null;
                 }
 
-                if (connection != null && connection.IsOpen)
+                if (_connection != null && _connection.IsOpen)
                 {
-                    connection.Close();
-                    connection = null;
+                    _connection.Close();
+                    _connection = null;
                 }
             }
             catch (IOException ex)
