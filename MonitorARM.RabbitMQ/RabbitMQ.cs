@@ -62,7 +62,7 @@ namespace MonitorARM.RabbitMQ
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Reconnect failed!");
+                    Console.WriteLine($"Reconnect failed! {ex.Message}");
                     Thread.Sleep(3000);
                 }
             }
@@ -88,6 +88,7 @@ namespace MonitorARM.RabbitMQ
             }
             catch (IOException ex)
             {
+                Console.WriteLine($"Error: {ex.Message}");
                 // Close() may throw an IOException if connection
                 // dies - but that's ok (handled by reconnect)
             }

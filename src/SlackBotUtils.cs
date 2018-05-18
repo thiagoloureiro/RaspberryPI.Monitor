@@ -52,7 +52,7 @@ namespace MonitorARM
         {
             var bot = GetBot();
 
-            bot.MessageReceived += OnBotOnMessageReceived;
+            bot.MessageReceived += Bot_MessageReceived;
 
             await bot.Connect();
 
@@ -61,8 +61,9 @@ namespace MonitorARM
             // await bot.Disconnect();
         }
 
-        public async void OnBotOnMessageReceived(object sender, MessageReceivedEventArgs e)
+        private void Bot_MessageReceived(object sender, MessageReceivedEventArgs e)
         {
+            throw new System.NotImplementedException();
         }
     }
 }
