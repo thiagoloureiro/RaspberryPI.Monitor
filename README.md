@@ -15,4 +15,4 @@ https://medium.com/@thiagoloureiro/raspberry-pi-net-core-2-0-parte-2-criando-o-p
 https://medium.com/@thiagoloureiro/raspberry-pi-net-core-2-0-parte-3-o-projeto-criando-a-api-gateway-8ff78fb1867
 
 # Part 4 (Monitor Application)
-Under development
+https://medium.com/@thiagoloureiro/raspberry-pi-net-core-2-0-parte-4-consumindo-mensagens-no-pi-ed28816042d5
