@@ -10,7 +10,7 @@ namespace Monitor.ARM.Test
         [Fact]
         public void SynthetizeText()
         {
-            CallWatson.SynthetizeText("Test Sythetizing Text", "pt-BR_IsabelaVoice");
+            CallWatson.SynthetizeText("Seja bem vindo Thiago", "pt-BR_IsabelaVoice");
         }
 
         [Fact]
