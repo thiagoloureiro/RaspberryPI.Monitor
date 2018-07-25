@@ -1,10 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using MonitorARM.IBMWatson;
+using Newtonsoft.Json;
+using TestRasp;
+using Xunit;
 
 namespace Monitor.ARM.Test
 {
-    class TestSynthetizeText
+    public class TestSynthetizeText
     {
+        [Fact]
+        public void SynthetizeText()
+        {
+            CallWatson.SynthetizeText("Test Sythetizing Text", "pt-BR_IsabelaVoice");
+        }
+
+        [Fact]
+        public void GetVoices()
+        {
+            var ret = CallWatson.GetVoices();
+            var voiceList = JsonConvert.DeserializeObject<VoiceModel>(ret.ReadAsStringAsync().Result);
+            Assert.True(voiceList.voices.Count > 0);
+        }
     }
 }
