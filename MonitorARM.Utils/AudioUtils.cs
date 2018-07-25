@@ -6,7 +6,7 @@ namespace MonitorARM.Utils
     {
         public static void PlayAudio()
         {
-            string command = "aplay /home/pi/Desktop/monitorARM/music.wav";
+            string command = "aplay /home/pi/Desktop/monitor2/music.wav";
             var process = new Process()
             {
                 StartInfo = new ProcessStartInfo

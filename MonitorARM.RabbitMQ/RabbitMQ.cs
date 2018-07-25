@@ -26,7 +26,7 @@ namespace MonitorARM.RabbitMQ
 
         public void Connect()
         {
-            _factory = new ConnectionFactory() { HostName = "hound.rmq.cloudamqp.com", VirtualHost = "usldnewk", UserName = "usldnewk", Password = "-" };
+            _factory = new ConnectionFactory() { HostName = "hound.rmq.cloudamqp.com", VirtualHost = "usldnewk", UserName = "usldnewk", Password = "urWrV6UeRu5vGgk8k7YJaqVwFCJyPSHc" };
 
             _connection = _factory.CreateConnection();
             _connection.ConnectionShutdown += Connection_ConnectionShutdown;
