@@ -12,7 +12,7 @@ namespace TestRasp
         {
             string url = "https://stream.watsonplatform.net/text-to-speech/api/v1/synthesize";
             string username = "deac8fe3-0590-4677-a667-150fa45b88d4";
-            string password = "PdgBBkvpTC6s";
+            string password = "-";
 
             string authString = username + ":" + password;
             var byteArray = Encoding.ASCII.GetBytes(authString);
@@ -38,7 +38,7 @@ namespace TestRasp
         {
             string url = $"https://stream.watsonplatform.net/text-to-speech/api/v1/synthesize?voice={voice}";
             string username = "deac8fe3-0590-4677-a667-150fa45b88d4";
-            string password = "PdgBBkvpTC6s";
+            string password = "-";
 
             string authString = username + ":" + password;
             var byteArray = Encoding.ASCII.GetBytes(authString);
